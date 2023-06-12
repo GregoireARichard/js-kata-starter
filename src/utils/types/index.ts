@@ -21,18 +21,11 @@ export function performBinaryOperation(operator: Operator, operand1: number, ope
       return operand1 / operand2;
     case "MOD":
       return operand1 % operand2;
-    default:
-      throw new Error(`opérateur binaire inconnu : ${operator}`);
   }
 }
 // Effectue l'opération unaire correspondant à l'opérateur
 export function performUnaryOperation(operator: UnaryOperator, operand: number): number {
-  switch (operator) {
-    case "NEGATE":
-      return -operand;
-    default:
-      throw new Error(`opérateur unaire inconnu : ${operator}`);
-  }
+  return -operand;
 }
 
 // Effectue l'opération binaire avec l'opérateur et les opérandes récupérés et empile le résultat
