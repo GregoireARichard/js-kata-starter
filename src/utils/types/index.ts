@@ -23,12 +23,12 @@ export function performBinaryOperation(operator: Operator, operand1: number, ope
       return operand1 % operand2;
   }
 }
-// Effectue l'opération unaire correspondant à l'opérateur
+// Performs the unary operation corresponding to the operator
 export function performUnaryOperation(operator: UnaryOperator, operand: number): number {
   return -operand;
 }
 
-// Effectue l'opération binaire avec l'opérateur et les opérandes récupérés et empile le résultat
+// Perform the binary operation corresponding to the operator and stack the result
 export function performBinaryOperationOnStack(stack: number[], operator: Operator): void {
   const operand2 = stack.pop();
   const operand1 = stack.pop();
@@ -41,7 +41,7 @@ export function performBinaryOperationOnStack(stack: number[], operator: Operato
   stack.push(result);
 }
 
-// Effectue l'opération unaire avec l'opérateur et l'opérande récupérés et empile le résultat
+// Performs the unary operation with the retrieved operator and operand and stacks the result
 export function performUnaryOperationOnStack(stack: number[], operator: UnaryOperator): void {
   const operand = stack.pop();
 
@@ -53,7 +53,7 @@ export function performUnaryOperationOnStack(stack: number[], operator: UnaryOpe
   stack.push(result);
 }
 
-// Convertit le token en flottant et l'empile sur la pile
+// Convert the token to a float and stack it
 export function pushOperandToStack(stack: number[], token: string): void {
   const operand = parseFloat(token);
 
