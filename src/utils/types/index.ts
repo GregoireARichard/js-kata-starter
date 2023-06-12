@@ -8,7 +8,7 @@ export function isUnaryOperator(token: string): token is UnaryOperator {
 }
 export function performBinaryOperation(operator: Operator, operand1: number, operand2: number): number {
   if (operator === "/" && operand2 === 0) {
-    throw new Error("Division par zéro impossible");
+    throw new Error("Can't divide by zero");
   }
   switch (operator) {
     case "+":
@@ -34,7 +34,7 @@ export function performBinaryOperationOnStack(stack: number[], operator: Operato
   const operand1 = stack.pop();
 
   if (operand1 === undefined || operand2 === undefined) {
-    throw new Error("Expression RPN invalide : opérandes insuffisants");
+    throw new Error("Invalid RPN expression : insufficient operand");
   }
 
   const result = performBinaryOperation(operator, operand1, operand2);
@@ -46,7 +46,7 @@ export function performUnaryOperationOnStack(stack: number[], operator: UnaryOpe
   const operand = stack.pop();
 
   if (operand === undefined) {
-    throw new Error("Expression RPN invalide : opérandes insuffisants");
+    throw new Error("Invalid RPN expression : insufficient operand");
   }
 
   const result = performUnaryOperation(operator, operand);
@@ -58,7 +58,7 @@ export function pushOperandToStack(stack: number[], token: string): void {
   const operand = parseFloat(token);
 
   if (isNaN(operand)) {
-    throw new Error(`token invalide : ${token}`);
+    throw new Error(`invalid token : ${token}`);
   }
 
   stack.push(operand);
