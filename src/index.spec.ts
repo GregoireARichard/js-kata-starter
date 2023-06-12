@@ -6,7 +6,9 @@ import rpn from ".";
 expect.extend(matchers);
 
 test("RPN zero division, ce test doit retouner une erreur", () => {
-  expect(rpn("1 0 /")).toEqual(0);
+  expect(() => {
+    rpn("1 0 /");
+  }).toThrowError("Division par zéro impossible");
 });
 
 test("RPN addition", () => {
@@ -32,4 +34,3 @@ test("RPN multiplication et addition", () => {
 test("Expression complexe RPN avec plusieurs opérateurs", () => {
   expect(rpn("7 4 5 * + 10 12 - +")).toEqual(25);
 });
-
