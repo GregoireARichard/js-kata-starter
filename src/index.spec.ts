@@ -1,7 +1,7 @@
 // @ts-ignore see https://github.com/jest-community/jest-extended#setup
 import * as matchers from "jest-extended";
 
-import rpn from ".";
+import rpnToInfix from ".";
 import {
   isOperator,
   isUnaryOperator,
@@ -82,21 +82,21 @@ test("Division by zero, this test should receive an error", () => {
 
 //Test RPN
 test("RPN addition", () => {
-  expect(rpn("1 1 +")).toEqual(2);
+  expect(rpnToInfix("1 1 +")).toEqual(2);
 });
 
 test("RPN modulo", () => {
-  expect(rpn("4 3 MOD")).toEqual(1);
+  expect(rpnToInfix("4 3 MOD")).toEqual(1);
 });
 
 test("RPN complexe expression", () => {
-  expect(rpn("1 1 NEGATE +")).toEqual(0);
+  expect(rpnToInfix("1 1 NEGATE +")).toEqual(0);
 });
 
 test("RPN multiplication and addition", () => {
-  expect(rpn("2 3 + 4 *")).toEqual(20);
+  expect(rpnToInfix("2 3 + 4 *")).toEqual(20);
 });
 
 test("Multiple operation expression", () => {
-  expect(rpn("7 4 5 * + 10 12 - +")).toEqual(25);
+  expect(rpnToInfix("7 4 5 * + 10 12 - +")).toEqual(25);
 });
