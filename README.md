@@ -1,6 +1,4 @@
-# js-kata-starter
-
-Starter project for kata (Node, TypeScript, Jest)
+# RPN to infix converter
 
 ## Getting started
 
