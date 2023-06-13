@@ -1,11 +1,14 @@
 import { Operator, UnaryOperator } from "./types";
 
+// Checks if the operator is correct
 export function isOperator(token: string): token is Operator {
   return token === "+" || token === "-" || token === "*" || token === "/" || token === "MOD";
 }
+// Checks if the unary operator is correct
 export function isUnaryOperator(token: string): token is UnaryOperator {
   return token === "NEGATE";
 }
+// Performs the operation given an operator and operands
 export function performBinaryOperation(operator: Operator, operand1: number, operand2: number): number {
   if (operator === "/" && operand2 === 0) {
     throw new Error("Can't divide by zero");
@@ -28,7 +31,7 @@ export function performUnaryOperation(operator: UnaryOperator, operand: number):
   return -operand;
 }
 
-// Perform the binary operation corresponding to the operator and stack the result
+// Performs the binary operation corresponding to the operator and stack the result
 export function performBinaryOperationOnStack(stack: number[], operator: Operator): void {
   const operand2 = stack.pop();
   const operand1 = stack.pop();
@@ -53,7 +56,7 @@ export function performUnaryOperationOnStack(stack: number[], operator: UnaryOpe
   stack.push(result);
 }
 
-// Convert the token to a float and stack it
+// Converts the token to a float and stack it
 export function pushOperandToStack(stack: number[], token: string): void {
   const operand = parseFloat(token);
 

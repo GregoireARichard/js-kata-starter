@@ -9,7 +9,7 @@ import {
   pushOperandToStack,
 } from "./utils/types";
 
-// Fonction principale RPN
+// Main function : RPN
 function rpn(expression: string): number {
   const tokens = expression.trim().split(" ");
   const stack: number[] = [];
