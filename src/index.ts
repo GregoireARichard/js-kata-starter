@@ -10,7 +10,7 @@ import {
 } from "./utils/types";
 
 // Fonction principale RPN
-function rpnToInfix(expression: string): number {
+function rpn(expression: string): number {
   const tokens = expression.trim().split(" ");
   const stack: number[] = [];
 
@@ -31,4 +31,4 @@ function rpnToInfix(expression: string): number {
   return stack[0];
 }
 
-export default rpnToInfix;
+export default rpn;
