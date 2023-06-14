@@ -25,7 +25,7 @@ function rpn(expression: string): number {
   }
 
   if (stack.length !== 1) {
-    throw new Error("Expression RPN invalide : trop d'opérandes");
+    throw new Error("Invalid RPN expression : too many operands");
   }
 
   return stack[0];
